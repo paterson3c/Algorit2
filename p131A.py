@@ -1,6 +1,9 @@
 import numpy as np
 
 def init_cd(n: int)-> np.ndarray:
+    '''
+    Function: init_cd Date
+    '''
     return np.full(n, -1, dtype=int)
 
 def union(rep_1: int, rep_2: int, p_cd: np.ndarray)-> int:
@@ -25,4 +28,5 @@ def find(ind: int, p_cd: np.ndarray)-> int:
         find(p_cd[ind], p_cd)
 
 if (__name__ == "__main__"):
-    print("Ernes es un putero, los bots le hablan al dm")
+    print("hoola")
+
