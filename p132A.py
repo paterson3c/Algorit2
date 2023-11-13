@@ -3,6 +3,7 @@ import p131A as cd
 import queue
 from queue import PriorityQueue
 from typing import Tuple
+import time
 
 def create_pq(n: int, l_g: list)-> queue.PriorityQueue:
     pq = PriorityQueue()
@@ -26,16 +27,53 @@ def print_pq_contents(pq: PriorityQueue):
 
 def kruskal(n: int, l_g: list)-> Tuple[int, list]:
     weight = 0
+    tree = cd.init_cd(n)
     l_t = []
+
 
     pq = create_pq(n, l_g)
 
     while not pq.empty():
-        item = pq.get()
-                
+        (w, u, v) = pq.get()
 
-    return
+        if(cd.find(u, tree) != cd.find(v, tree)):
+            l_t.append((u, v))
+            weight += w
+            cd.union(u, v, tree)
+        
+    return weight, l_t
 
+def kruskal_2(n: int, l_g: list)-> Tuple[int, list, float]:
+    weight = 0
+    tree = cd.init_cd(n)
+    l_t = []
+    total = 0
+
+
+    pq = create_pq(n, l_g)
+
+    while not pq.empty():
+        (w, u, v) = pq.get()
+
+        start = time.time()
+        f1 = cd.find(u, tree)
+        end = time.time()
+        total += end - start
+
+        start = time.time()
+        f2 = cd.find(v, tree)
+        end = time.time()
+        total += end - start
+
+        if( f1 != f2):
+            l_t.append((u, v))
+            weight += w
+            start = time.time()
+            cd.union(u, v, tree)
+            end = time.time()
+            total += end - start
+        
+    return weight, l_t, total
 
 
 if __name__ == "__main__":

@@ -22,10 +22,17 @@ def union(rep_1: int, rep_2: int, p_cd: np.ndarray)-> int:
 
 def find(ind: int, p_cd: np.ndarray)-> int:
 
-    if p_cd[ind] < 0:
-        return ind
-    else:
-        find(p_cd[ind], p_cd)
+    z = ind
+    
+    while p_cd[z] >= 0:
+        z = p_cd[z]
+    
+    while p_cd[ind] >= 0:
+        y = p_cd[ind]
+        p_cd[ind] = z
+        ind = y
+    
+    return z
 
 if (__name__ == "__main__"):
     print("hoola")
