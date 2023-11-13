@@ -19,7 +19,7 @@ def complete_graph(n_nodes: int, max_weight=50)-> Tuple[int, list]:
 
 
 
-def time_kruskal(n_graphs: int, n_nodes_ini: int, n_nodes_fin: int, step: int,)-> list:
+def time_kruskal(n_graphs: int, n_nodes_ini: int, n_nodes_fin: int, step: int)-> list:
     l_times = []
 
     while n_nodes <= n_nodes_fin:
@@ -45,7 +45,7 @@ def time_kruskal_2(n_graphs: int, n_nodes_ini: int, n_nodes_fin: int, step: int)
 
         for i in range(n_graphs):
             n, l_g = complete_graph(n_nodes)
-            w, tree, time = kruskal.kruskal_2(n_nodes, l_g)
+            tw, tree, time = kruskal.kruskal_2(n_nodes, l_g)
             total += time
 
         l_times.append((n, (total / n_graphs)))
