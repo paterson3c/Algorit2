@@ -35,5 +35,6 @@ def find(ind: int, p_cd: np.ndarray)-> int:
     return z
 
 if (__name__ == "__main__"):
-    print("hoola")
-
+    
+    for i in range(4,4):
+        print(i)
