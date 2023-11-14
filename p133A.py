@@ -35,7 +35,6 @@ def len_circuit(circuit: list, dist_m: np.ndarray)-> int:
     length = 0
 
     for j in range(num_nodes):
-        for i in range(j + 1, num_nodes):
-            length += dist_m[j][i]
+            length += dist_m[circuit[j]][circuit[j + 1]]
 
     return length
