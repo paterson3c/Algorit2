@@ -6,6 +6,7 @@ from queue import PriorityQueue
 from typing import Tuple
 import random
 import time
+import itertools
 
 def dist_matrix(n_nodes: int, w_max=10) -> np.ndarray:
     """
@@ -38,3 +39,43 @@ def len_circuit(circuit: list, dist_m: np.ndarray)-> int:
             length += dist_m[circuit[j]][circuit[j + 1]]
 
     return length
+
+
+def repeated_greedy_tsp(dist_m: np.ndarray)-> list:
+    """
+    aplicar nuestra funcion greedy_tsp a partir de todos los nodos del grafo y devolver el circuito con la menor longitud
+    """
+    num_nodes = dist_m.shape[0]
+    min_length = float('inf')
+    min_circuit = []
+    for i in range(num_nodes):
+        circuit = greedy_tsp(dist_m, i)
+        length = len_circuit(circuit, dist_m)
+        if length < min_length:
+            min_length = length
+            min_circuit = circuit
+    
+    return min_circuit
+
+def exhaustive_tsp(dist_m: np.ndarray)-> list:
+    """
+    Para grafos pequenos podemos intentar resolver TSP simplemente examinando todos los posibles
+    circuitos y devolviendo aquel con la distancia mas corta. Escribir una funcion
+    exhaustive_tsp(dist_m: np.ndarray)-> List
+    que implemente esta idea usando la libreria itertools . Entre los metodos de iteracion implementados en la biblioteca,
+    se encuentra la funcion permutations(iterable, r=None) que devuelve un objeto iterable que proporciona sucesivamente
+    todas las permutaciones de longitud r en orden lexicografico. Aqui r es por defecto la longitud del iterable pasado
+    como parametro, es decir, se generan todas las permutaciones con len(iterable) elementos
+    """
+    num_nodes = dist_m.shape[0]
+    min_length = float('inf')
+    min_circuit = []
+    for circuit in itertools.permutations(range(num_nodes)):
+        circuit = list(circuit)
+        circuit.append(circuit[0])
+        length = len_circuit(circuit, dist_m)
+        if length < min_length:
+            min_length = length
+            min_circuit = circuit
+    
+    return min_circuit
