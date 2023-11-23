@@ -1,3 +1,33 @@
+"""
+Documentación de las importaciones:
+
+    - typing:
+        Este módulo se utiliza para soporte de anotaciones de tipo. La clase 'Tuple'
+        se importa para definir tipos de datos compuestos, como tuplas con tipos específicos
+        para cada elemento.
+
+    - random: 
+        Módulo que implementa generadores de números pseudoaleatorios para diversas
+        distribuciones. Se usa comúnmente para la generación de datos aleatorios, como pesos en grafos.
+
+    - time:
+        Proporciona funciones para trabajar con tiempos, incluyendo funciones para medir
+        el tiempo de ejecución, lo cual es útil para el análisis de rendimiento de algoritmos.
+
+    - itertools:
+        Ofrece un conjunto de herramientas rápidas y eficientes para crear y manipular iteradores.
+        Utilizado para operaciones avanzadas de iteración y manipulación de datos.
+
+    - queue:
+        Implementa varias clases de colas, que son útiles para manejar colecciones de 
+        elementos en un orden específico. 'PriorityQueue' es una subclase que implementa 
+        una cola donde los elementos se ordenan por prioridad.
+
+    - numpy (np):
+        Es una biblioteca fundamental para la computación científica en Python.
+        Ofrece soporte para arrays y matrices de gran tamaño y herramientas matemáticas
+        para trabajar con estos datos.
+"""
 from typing import Tuple
 import random
 import time
