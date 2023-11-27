@@ -8,7 +8,8 @@ Documentación de las importaciones:
 
     - random: 
         Módulo que implementa generadores de números pseudoaleatorios para diversas
-        distribuciones. Se usa comúnmente para la generación de datos aleatorios, como pesos en grafos.
+        distribuciones. Se usa comúnmente para la generación de datos aleatorios,
+        como pesos en grafos.
 
     - time:
         Proporciona funciones para trabajar con tiempos, incluyendo funciones para medir
